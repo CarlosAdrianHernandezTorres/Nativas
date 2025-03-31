@@ -56,7 +56,7 @@ fun ProfileScreen(navController: NavHostController) {
                         id = userData.id,
                         name = userData.name,
                         email = userData.email,
-                        password = "", // No se usa en update
+                        password = "",
                         role = userData.role,
                         profileImageUrl = selectedUri
                     )

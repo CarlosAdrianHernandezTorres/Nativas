@@ -62,7 +62,7 @@ fun RegisterScreen(navController: NavHostController) {
                     return@Button
                 }
 
-                localError = null // limpia errores anteriores
+                localError = null
                 val user = RegisterRequest(name = name, email = email, password = password)
                 authViewModel.registerUser(user)
             },
@@ -77,12 +77,10 @@ fun RegisterScreen(navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Mostrar errores locales (campos vacíos)
         localError?.let {
             Text("❌ $it", color = MaterialTheme.colorScheme.error)
         }
 
-        // Mostrar estado desde ViewModel
         when (registerState) {
             is AuthViewModel.AuthState.Loading -> {
                 CircularProgressIndicator()

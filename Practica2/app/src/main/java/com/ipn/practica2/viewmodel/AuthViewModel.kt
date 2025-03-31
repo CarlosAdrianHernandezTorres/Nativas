@@ -57,17 +57,13 @@ class AuthViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     val user = response.body()
                     user?.let {
-                        // 🟡 Obtener la imagen previa guardada
                         val previousImageUri = userPrefs.getUserData().map { it.imageUri }.first()
-
-                        // ✅ Mantener la imagen previa si no viene una nueva
                         val finalImageUri = if (!it.profileImageUrl.isNullOrBlank()) {
                             it.profileImageUrl!!
                         } else {
                             previousImageUri
                         }
 
-                        // 📝 Guardar usuario completo en DataStore
                         userPrefs.saveUser(
                             id = it.id ?: "",
                             name = it.name,

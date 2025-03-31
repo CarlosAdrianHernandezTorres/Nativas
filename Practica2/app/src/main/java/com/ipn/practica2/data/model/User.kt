@@ -5,7 +5,7 @@ data class User(
     val name: String,
     val email: String,
     val password: String,
-    val role: String = "user", // "admin" o "user"
+    val role: String = "user",
     val profileImageUrl: String? = null,
     val token: String? = null
 )
